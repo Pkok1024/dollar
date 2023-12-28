@@ -17,7 +17,7 @@ async function uploadFileToDiscord(fileBuffer) {
   // Add your Discord API endpoint and headers
   const discordEndpoint = 'https://discord.com/api/v9/channels/1180682772487098549/messages';
   const headers = {
-    Authorization: 'Bot MTE4MDU0MDQzNDA5OTk5ODgyMA.GAlVm4.6IG4KO_wSdC6Mxen32zpkIndW1jdn2-UeAwEro',
+    Authorization: 'Bot MTE4OTgyNDg2MTA5NTM0NjE5Nw.GnCaib.A-YEXExqYBWT0nmshpc1of_M6ulbbYN-BFEYn8',
   };
 
   // request discord
