@@ -1,0 +1,131 @@
+<!-- api-doc.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      overflow: auto;
+    }
+
+    .example-container {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>File Upload API Documentation</h1>
+  <p>The File Upload API allows you to upload files to the server, and it returns the URL of the uploaded file.</p>
+
+  <h2>Base URL</h2>
+  <code>https://your-server-base-url.com/api/upload-to-discord</code>
+
+  <h2>Endpoint</h2>
+
+  <h3>Upload File</h3>
+  <ul>
+    <li><strong>Method:</strong> POST</li>
+    <li><strong>Endpoint:</strong> <code>/api/upload-to-discord</code></li>
+  </ul>
+
+  <h2>Request</h2>
+
+  <h3>Method</h3>
+  <p>POST</p>
+
+  <h3>Content-Type</h3>
+  <code>multipart/form-data</code>
+
+  <h3>Parameters</h3>
+  <pre>
+| Parameter  | Type  | Description                        |
+|------------|-------|------------------------------------|
+| <code>file</code>     | File  | The file to be uploaded.           |
+  </pre>
+
+  <h2>Example</h2>
+
+  <div class="example-container">
+    <p>Using Axios for a POST request:</p>
+    <pre>
+const formData = new FormData();
+formData.append('file', file); // Assuming you have a file input element
+
+axios.post('https://your-server-base-url.com/api/upload-to-discord', formData)
+  .then(response => {
+    console.log('Response:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+    </pre>
+
+    <button onclick="performExampleRequest()">Try Example</button>
+    <div id="exampleResult"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function performExampleRequest() {
+      const formData = new FormData();
+      formData.append('file', new File(['mock file content'], 'example.txt', { type: 'text/plain' }));
+
+      axios.post('https://your-server-base-url.com/api/upload-to-discord', formData)
+        .then(response => {
+          const resultContainer = document.getElementById('exampleResult');
+          resultContainer.innerHTML = `<p><strong>Response:</strong> ${JSON.stringify(response.data)}</p>`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+</html>
