@@ -3,22 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
   <title>.M.U.F.A.R.</title>
+  <!-- Open Graph Protocol meta tags for WhatsApp preview -->
+  <meta property="og:title" content="Your Page Title">
+  <meta property="og:description" content="Description of your page">
+  <meta property="og:image" content="https://telegra.ph/file/c9d5df21ca1ca00390b16.jpg">
+  <meta property="og:url" content="https://dollar.bivat22407.repl.co">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="https://telegra.ph/file/c9d5df21ca1ca00390b16.jpg" type="image/x-icon">
   <style>
     body {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url('https://cdn.discordapp.com/attachments/1180682772487098549/1189764799748374559/MUFAR.jpg');
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('https://cdn.discordapp.com/attachments/1180682772487098549/1189764799748374559/MUFAR.jpg');
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: url('http://artpictures.club/download.php?w=1920&h=1080&img=https://forums.synfig.org/uploads/default/original/2X/3/31838d4b71b86e1cf16718fa28568840fd859955.gif') repeat top center
+}
+
+@keyframes rain {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
 
     h1 {
       color: white;
@@ -31,11 +60,12 @@
     }
 
     input[type="file"] {
+      font-family: 'Archivo Black', sans-serif;
       border: none;
       border-radius: 10px 10px 0 0;
       padding: 10px;
       margin-bottom: 10px;
-      background: url('https://cdn.discordapp.com/attachments/1180682772487098549/1189764799748374559/MUFAR.jpg') no-repeat;
+      background: url('https://telegra.ph/file/ed40a63d09a001ab50b4e.jpg') no-repeat;
       background-size: cover;
       color: white;
       cursor: pointer;
@@ -68,24 +98,53 @@
     }
 
     .uploadButton,
-    .uploadAnotherButton {
-      border: none;
-      border-radius: 10px;
-      padding: 15px;
-      cursor: pointer;
-      background: url('https://cdn.discordapp.com/attachments/1180682772487098549/1189764799748374559/MUFAR.jpg') no-repeat;
-      background-size: cover;
-      color: white;
-      margin-top: 10px;
-      display: block;
+.uploadAnotherButton {
+  font-family: 'Archivo Black', sans-serif;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  background: url('https://cdn.discordapp.com/attachments/1180682772487098549/1189764799748374559/MUFAR.jpg') no-repeat;
+  background-color: rgba(0, 0, 0, 0.7); 
+  background-size: cover;
+  color: white;
+  margin-top: 10px;
+  display: block;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  opacity: 1; /* Initial opacity */
+}
+
+.uploadButton:hover,
+.uploadAnotherButton:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1; /* Hovered opacity */
+}
+
+.uploadButton:active,
+.uploadAnotherButton:active {
+  opacity: 0.8; /* Clicked opacity */
+}
+    h1 {
+      color: white; /* Ganti dengan warna yang diinginkan */
+      opacity: 0;
+      animation: fadeInOut 3s ease infinite; /* Ubah durasi dan timing function sesuai kebutuhan */
+
+      /* ... (properti lain jika diperlukan) */
     }
 
-    .uploadButton:hover,
-    .uploadAnotherButton:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
     }
+
 
     .footer {
+      font-family: 'Bebas Neue', sans-serif;
       position: fixed;
       bottom: 0;
       left: 0;
@@ -147,14 +206,14 @@
   </style>
 </head>
 <body>
-  <h1></h1>
+  <h1>MAX 10MB</h1>
   <form id="uploadForm" action="/api/upload-to-discord" method="post" enctype="multipart/form-data">
     <label for="fileInput">
       <input id="fileInput" type="file" name="file" accept=".png, .jpg, .jpeg, .gif">
     </label>
     <br>
     <input type="text" name="backgroundUrl" value="https://cdn.discordapp.com/attachments/1180682772487098549/1189768337899671613/MUFAR.jpg" hidden>
-    <button class="uploadButton" type="button" onclick="submitForm()">Upload File</button>
+    <button class="uploadButton" type="button" onclick="submitForm()">Upload</button>
   </form>
 
   <div id="resultContainer">
@@ -164,8 +223,7 @@
     <button class="uploadAnotherButton" onclick="uploadAgain()">Upload Another</button>
   </div>
 
-  <button class="uploadButton" onclick="uploadAgain()">Upload Another</button>
-
+ 
   <div class="footer" onclick="openApiDocumentation()">API Documentation</div>
 
   <button id="contactsButton" onclick="openContactsWindow()">Contacts</button>

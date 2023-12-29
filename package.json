@@ -7,14 +7,19 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "file-type": "*",
     "form-data": "^4.0.0",
     "formdata-node": "^3.0.4",
+    "jsonwebtoken": "^9.0.2",
     "mime-types": "^2.1.35",
+    "mongoose": "^8.0.3",
     "multer": "^1.4.3",
     "node-fetch": "^2.6.5",
-    "dotenv": "^10.0.0"
+    "uuid": "^9.0.1"
   },
   "type": "commonjs"
 }
