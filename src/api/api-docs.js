@@ -1,64 +1,21 @@
+require('../../lib/message');
 const express = require( 'express' );
-const multer = require( 'multer' );
-const {
-  uploadFileToDiscord
-} = require( '../../dc.js' );
 const fs = require( 'fs' );
 const request = require( 'request' )
 const apiR = express( );
 __path = process.cwd( );
-const storage = multer.memoryStorage( );
 
-const upload = multer( {
-  storage: storage,
-  limits: {
-    fileSize: 10 * 1024 * 1024
-  } // 10MB limit
-} );
+const {
+    fetchJson,
+    getBuffer
+} = require('../../lib/function');
+/**
+ * @swagger
+ * tags:
+ *   - name: random
+ *     description: Endpoints for random content
+ */
 
-
-
-apiR.post( '/upload-to-discord', upload.single( 'file' ), async ( req, res ) => {
-  try {
-    if ( !req.file ) {
-      return res.status( 400 )
-        .json( {
-          error: 'No file uploaded.'
-        } );
-    }
-    if ( req.file.size > 10 * 1024 * 1024 ) {
-      return res.status( 400 )
-        .json( {
-          error: 'File size exceeds the 10MB limit.'
-        } );
-    }
-    const fileBuffer = req.file.buffer;
-    const result = await uploadFileToDiscord( fileBuffer );
-    // Remove query parameters from the file URL
-    const cleanedFileUrl = result.attachments[ 0 ].url.replace( /\?.*$/, '' );
-    const discordResponse = {
-      message: 'File uploaded successfully.',
-      author: `${result.author.username}`,
-      responseCode: 200,
-      fileUrl: cleanedFileUrl,
-    };
-    // Notify with extracted information
-    console.log( `Notification:
-      ${discordResponse.message}
-      ${discordResponse.author}
-      Response Code: ${discordResponse.responseCode}
-      File URL: ${discordResponse.fileUrl}` );
-    res.status( 200 )
-      .json( discordResponse );
-  }
-  catch ( error ) {
-    console.error( 'Error uploading to Discord:', error );
-    res.status( 500 )
-      .json( {
-        error: 'Internal Server Error'
-      } );
-  }
-} );
 /**
  * @swagger
  * components:
@@ -99,7 +56,7 @@ apiR.get( '/video/random', async ( req, res, next ) => {
  *       type: string
  *       format: binary
  *
- * /api/image/:
+ * /api/image/random:
  *   get:
  *     summary: Get a random image from random.
  *     description: Returns a random image from the China JSON file.
@@ -393,7 +350,66 @@ apiR.get( '/image/vietnam', async ( req, res, next ) => {
     res.send( body );
   } );
 } )
+/**
+ * @swagger
+ * tags:
+ *   - name: downloader
+ *     description: Endpoints for downloading content
+ */
+
+/**
+ * @swagger
+ * /api/downloader/tiktok:
+ *   get:
+ *     summary: Download TikTok content
+ *     description: Downloads TikTok content using the provided URL.
+ *     tags:
+ *       - downloader
+ *     parameters:
+ *       - in: query
+ *         name: url
+ *         required: true
+ *         description: The URL of the TikTok content to download.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response with downloaded TikTok content.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                 code:
+ *                   type: integer
+ *                 author:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *               example:
+ *                 status: Success
+ *                 code: 200
+ *                 author: xyla
+ *                 data:
+ *                   
+ */
+apiR.get('/downloader/tiktok', async (req, res, next) => {
+  const url = req.query.url;
+  if (!url) return res.json(msg.paramurl);
+
+  xorizn = await fetchJson(`https://xorizn-downloads.vercel.app/api/downloads/tiktok?url=${url}`)
+    .then(data => {
+      let aneh = data.result;
+      if (!aneh) return res.json(msg.nodata);
+      res.status(200).json({
+        status: "Success",
+        code: 200,
+        author: "Xyla",
+        data: aneh
+      });
+    });
+});
+
 module.exports = apiR
-//app.listen(port, () => {
-//  console.log(`Server is running on port ${port}`);
-//})

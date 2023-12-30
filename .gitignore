@@ -1,1 +1,6 @@
 .vercel
+node_modules
+.config
+.local
+.upm
+package-lock.json
