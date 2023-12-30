@@ -1,131 +1,155 @@
-<!-- api-doc.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Documentation</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background: url("https://telegra.ph/file/1b32f140c39f11ffd5415.jpg")
+      }
 
-    h1 {
-      color: #333;
-      border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-    }
+        .swagger-ui {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
 
-    p {
-      color: #555;
-    }
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
 
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
+        .path {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 4px;
-      overflow: auto;
-    }
+        .method {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-    .example-container {
-      margin-top: 20px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 4px;
-    }
+        .description {
+            margin-bottom: 20px;
+        }
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+        .button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <h1>File Upload API Documentation</h1>
-  <p>The File Upload API allows you to upload files to the server, and it returns the URL of the uploaded file.</p>
+    <div class="swagger-ui">
+        <div class="section">
+            <div class="path">GET /document</div>
+            <div class="method">Method: GET</div>
+            <div class="description">Serve API documentation at '/document'</div>
+            <button class="button" onclick="redirectToPath('/document', 'GET')">Try it out</button>
+        </div>
 
-  <h2>Base URL</h2>
-  <code>https://your-server-base-url.com/api/upload-to-discord</code>
+        <div class="section">
+    <div class="path">GET /document</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Serve API documentation at '/document'</div>
+    <button class="button" onclick="redirectToPath('/document', 'GET')">Try it out</button>
+</div>
 
-  <h2>Endpoint</h2>
+<div class="section">
+    <div class="path">GET /api/china</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Retrieve a random image from China</div>
+    <button class="button" onclick="redirectToPath('/api/china', 'GET')">Try it out</button>
+</div>
 
-  <h3>Upload File</h3>
-  <ul>
-    <li><strong>Method:</strong> POST</li>
-    <li><strong>Endpoint:</strong> <code>/api/upload-to-discord</code></li>
-  </ul>
+<div class="section">
+    <div class="path">POST /api/upload-to-discord</div>
+    <div class="method">Method: POST</div>
+    <div class="description">Upload a file to Discord</div>
+    <button class="button" onclick="redirectToPath('/api/upload-to-discord', 'POST')">Try it out</button>
+</div>
 
-  <h2>Request</h2>
+<div class="section">
+    <div class="path">GET /api/video/random</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random video</div>
+    <button class="button" onclick="redirectToPath('/api/video/random', 'GET')">Try it out</button>
+</div>
 
-  <h3>Method</h3>
-  <p>POST</p>
+<div class="section">
+    <div class="path">GET /api/image/random</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image</div>
+    <button class="button" onclick="redirectToPath('/api/image/random', 'GET')">Try it out</button>
+</div>
 
-  <h3>Content-Type</h3>
-  <code>multipart/form-data</code>
+<div class="section">
+    <div class="path">GET /api/image/china</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from China</div>
+    <button class="button" onclick="redirectToPath('/api/image/china', 'GET')">Try it out</button>
+</div>
 
-  <h3>Parameters</h3>
-  <pre>
-| Parameter  | Type  | Description                        |
-|------------|-------|------------------------------------|
-| <code>file</code>     | File  | The file to be uploaded.           |
-  </pre>
+<div class="section">
+    <div class="path">GET /api/image/indonesia</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Indonesia</div>
+    <button class="button" onclick="redirectToPath('/api/image/indonesia', 'GET')">Try it out</button>
+</div>
 
-  <h2>Example</h2>
+<div class="section">
+    <div class="path">GET /api/image/japan</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Japan</div>
+    <button class="button" onclick="redirectToPath('/api/image/japan', 'GET')">Try it out</button>
+</div>
 
-  <div class="example-container">
-    <p>Using Axios for a POST request:</p>
-    <pre>
-const formData = new FormData();
-formData.append('file', file); // Assuming you have a file input element
+<div class="section">
+    <div class="path">GET /api/image/korean</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Korea</div>
+    <button class="button" onclick="redirectToPath('/api/image/korean', 'GET')">Try it out</button>
+</div>
 
-axios.post('https://your-server-base-url.com/api/upload-to-discord', formData)
-  .then(response => {
-    console.log('Response:', response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-    </pre>
+<div class="section">
+    <div class="path">GET /api/image/malaysia</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Malaysia</div>
+    <button class="button" onclick="redirectToPath('/api/image/malaysia', 'GET')">Try it out</button>
+</div>
 
-    <button onclick="performExampleRequest()">Try Example</button>
-    <div id="exampleResult"></div>
-  </div>
+<div class="section">
+    <div class="path">GET /api/image/thailand</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Thailand</div>
+    <button class="button" onclick="redirectToPath('/api/image/thailand', 'GET')">Try it out</button>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    function performExampleRequest() {
-      const formData = new FormData();
-      formData.append('file', new File(['mock file content'], 'example.txt', { type: 'text/plain' }));
+<div class="section">
+    <div class="path">GET /api/image/vietnam</div>
+    <div class="method">Method: GET</div>
+    <div class="description">Get a random image from Vietnam</div>
+    <button class="button" onclick="redirectToPath('/api/image/vietnam', 'GET')">Try it out</button>
+</div>
 
-      axios.post('https://your-server-base-url.com/api/upload-to-discord', formData)
-        .then(response => {
-          const resultContainer = document.getElementById('exampleResult');
-          resultContainer.innerHTML = `<p><strong>Response:</strong> ${JSON.stringify(response.data)}</p>`;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }
-  </script>
+
+    <script>
+        function redirectToPath(path, method) {
+            // Redirect to the specified path
+            window.location.href = path;
+        }
+    </script>
 </body>
 </html>
