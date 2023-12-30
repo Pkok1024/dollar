@@ -8,6 +8,8 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "@xct007/frieren-scraper": "^0.0.2",
+    "axios": "^1.6.3",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "dotenv": "^10.0.0",
@@ -16,11 +18,15 @@
     "form-data": "^4.0.0",
     "formdata-node": "^3.0.4",
     "jsonwebtoken": "^9.0.2",
+    "lolkil-scraper": "^1.0.6",
     "mime-types": "^2.1.35",
     "mongoose": "^8.0.3",
     "multer": "^1.4.3",
+    "nekopoi-scraper": "^2.7.1",
     "node-fetch": "^2.6.5",
+    "node-tiklydown": "^1.0.0",
     "request": "^2.88.2",
+    "scraper-jsc": "^0.0.5",
     "uuid": "^9.0.1"
   },
   "type": "commonjs"
