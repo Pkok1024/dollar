@@ -38,7 +38,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://api-mufar.cyclic.app,
+        url: 'https://api-mufar.cyclic.app',
         description: 'My API Documentation',
       },
     ],
