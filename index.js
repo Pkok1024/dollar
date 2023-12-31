@@ -10,7 +10,7 @@ const favicon = require('serve-favicon');
 const path = require('path');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
-secure = require('ssl-express-www');
+
 const helloRouter = require('./src/hallo')
 // Import the router from the hello.js file
 const apiR = require('./src/api/router');
@@ -27,6 +27,7 @@ app.use(cors());
 app.set('trust proxy', 1);
 app.use(compression());
 app.use(favicon(path.join(__dirname,'assets','image','1.png')))
+app.use('/assets', express.static(path.join(__dirname, 'assets'))); 
 app.enable('trust proxy');
 app.set("json spaces",2)
 app.use(express.urlencoded({ extended: true }));

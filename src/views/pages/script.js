@@ -1,36 +1,19 @@
-let images = [
-  'https://telegra.ph/file/56e6b604afac83b5e2ed2.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424265613372/IMG_20231027_094348_393.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424496304239/FpmNiokWIAE1m8T.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424747950161/mersweb-15-03-2023-0004.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424999616532/Screenshot_20210426_083352.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424265613372/IMG_20231027_094348_393.jpg',
-  'https://media.discordapp.net/attachments/1180682772487098549/1190555424747950161/mersweb-15-03-2023-0004.jpg'
-];
-let nextImage = new Image(); // Preload next image
-let isTransitioning = false;
+// particles.js configuration
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 100, density: { enable: true, value_area: 1200 } },
+    color: { value: '#ffffff' },
+    shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
+    opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+    size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+    line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 2 },
+    move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+    modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+  },
+  retina_detect: true
+});
 
-function preloadNextImage() {
-  const nextIndex = (currentIndex + 1) % images.length;
-  nextImage.src = images[nextIndex];
-}
-
-let currentIndex = 0;
-
-function changeBackground() {
-  if (isTransitioning) return;
-
-  isTransitioning = true;
-  document.body.style.opacity = 0;
-
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
-    preloadNextImage();
-
-    document.body.style.opacity = 1;
-    isTransitioning = false;
-  }, 1000); // Adjust the duration of the transition in milliseconds
-}
-
-setInterval(changeBackground, 4000);

@@ -6,7 +6,8 @@ body {
   height: 100vh;
   position: relative;
   background-size: cover;
-  transition: background-image 1s ease-in-out;
+  background-image: url('/assets/image/backg.png');     background-repeat: no-repeat;
+  z-index: -2
 }
 
 nav {
@@ -40,8 +41,16 @@ nav a::before {
 
 nav a:hover::before,
 nav a:active::before {
-  transform: scaleX(1);
-  transform-origin: left;
+  animation: underlineAnimation 0.3s forwards; /* Apply the animation */
+  background-color: #fff; /* Warna garis bawah saat di-hover atau di-tekan */
+}
+
+#particles-js { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  background-color: none;
+  z-index: -1; 
 }
 
 .container {

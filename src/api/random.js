@@ -43,11 +43,13 @@ apiR.get( '/random', async ( req, res, next ) => {
     res.send( body );
   } );
 } )
+
 /**
+ * @swagger
  * /api/random/potatogodzilla:
  *   get:
- *     summary: Get a random image from potatogodzilla.
- *     description: Returns a random image from the potatogodzilla JSON file.
+ *     summary: Get random image and video
+ *     description: Random image api
  *     tags: [random]
  *     produces:
  *       - image/png
