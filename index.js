@@ -11,9 +11,9 @@ const path = require('path');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 secure = require('ssl-express-www');
-const helloRouter = require('./src/hallo.js')
+const helloRouter = require('./src/hallo')
 // Import the router from the hello.js file
-const apiR = require('./src/api/api-docs.js');
+const apiR = require('./src/api/router');
 
 dotenv.config();
 
