@@ -66,11 +66,7 @@ const specs = swaggerJsDoc(options);
 // Swagger UI endpoint
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs, { customCssUrl: CSS_URL }));
 
-/*// Your existing route setup
-app.get( '/', ( req, res ) => {
-  const htmlContent = fs.readFileSync( 'index.html', 'utf8' );
-  res.send( htmlContent );
-} );*/
+
 app.use('/', helloRouter)
 app.use('/api', apiR);
 

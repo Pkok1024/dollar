@@ -19,7 +19,7 @@ const {
 
 /**
  * @swagger
- * /api/image/random:
+ * /api/random/random:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -30,7 +30,7 @@ const {
  *       200:
  *         description: Successfully retrieved the random image.
  */
-apiR.get( '/image/random', async ( req, res, next ) => {
+apiR.get( '/random', async ( req, res, next ) => {
   let data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/random.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -44,7 +44,7 @@ apiR.get( '/image/random', async ( req, res, next ) => {
   } );
 } )
 /**
- * /api/image/potatogodzilla:
+ * /api/random/potatogodzilla:
  *   get:
  *     summary: Get a random image from potatogodzilla.
  *     description: Returns a random image from the potatogodzilla JSON file.
@@ -55,7 +55,7 @@ apiR.get( '/image/random', async ( req, res, next ) => {
  *       200:
  *         description: Successfully retrieved the random image.
  */
-apiR.get( '/image/potatogodzilla', async ( req, res, next ) => {
+apiR.get( '/potatogodzilla', async ( req, res, next ) => {
   let data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/potatogodzilla.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -71,7 +71,7 @@ apiR.get( '/image/potatogodzilla', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/china:
+ * /api/random/china:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -83,7 +83,7 @@ apiR.get( '/image/potatogodzilla', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/china', async ( req, res, next ) => {
+apiR.get( '/china', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/china.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -99,7 +99,7 @@ apiR.get( '/image/china', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/indonesia:
+ * /api/random/indonesia:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -111,7 +111,7 @@ apiR.get( '/image/china', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/indonesia', async ( req, res, next ) => {
+apiR.get( '/indonesia', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/indonesia.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -127,7 +127,7 @@ apiR.get( '/image/indonesia', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/japan:
+ * /api/random/japan:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -139,7 +139,7 @@ apiR.get( '/image/indonesia', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/japan', async ( req, res, next ) => {
+apiR.get( '/japan', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/japan.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -155,7 +155,7 @@ apiR.get( '/image/japan', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/korean:
+ * /api/random/korean:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -167,7 +167,7 @@ apiR.get( '/image/japan', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/korean', async ( req, res, next ) => {
+apiR.get( '/korean', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/korean.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -183,7 +183,7 @@ apiR.get( '/image/korean', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/malaysia:
+ * /api/random/malaysia:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -195,7 +195,7 @@ apiR.get( '/image/korean', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/malaysia', async ( req, res, next ) => {
+apiR.get( '/malaysia', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/malaysia.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -211,7 +211,7 @@ apiR.get( '/image/malaysia', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/thailand:
+ * /api/random/thailand:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -223,7 +223,7 @@ apiR.get( '/image/malaysia', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/thailand', async ( req, res, next ) => {
+apiR.get( '/thailand', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/thailand.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {
@@ -239,7 +239,7 @@ apiR.get( '/image/thailand', async ( req, res, next ) => {
 
 /**
  * @swagger
- * /api/image/vietnam:
+ * /api/random/vietnam:
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
@@ -251,7 +251,7 @@ apiR.get( '/image/thailand', async ( req, res, next ) => {
  *         description: Successfully retrieved the random image.
  */
 
-apiR.get( '/image/vietnam', async ( req, res, next ) => {
+apiR.get( '/vietnam', async ( req, res, next ) => {
   const data = JSON.parse( fs.readFileSync( __path + '/scrape/data/asupan/image/vietnam.json' ) );
   var result = data[ Math.floor( Math.random( ) * data.length ) ];
   var requestSettings = {

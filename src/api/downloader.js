@@ -10,7 +10,7 @@ const {
     fetchJson,
     getBuffer
 } = require('../../lib/function');
-
+const scrape = require('../../scrape/index');
 /**
  * @swagger
  * tags:
@@ -56,7 +56,7 @@ const {
  *                 data:
  *                   
  */
-apiR.get('/downloader/tiktok', async (req, res, next) => {
+apiR.get('/tiktok', async (req, res, next) => {
   const url = req.query.url;
   if (!url) return res.json(msg.paramurl);
   xorizn = await fetchJson(`https://xorizn-downloads.vercel.app/api/downloads/tiktok?url=${url}`)
@@ -71,4 +71,121 @@ apiR.get('/downloader/tiktok', async (req, res, next) => {
       });
     });
 });
+
+
+/**
+ * @swagger
+ * /api/downloader/mediafire:
+ *   get:
+ *     summary: Download Mediafire content
+ *     description: Downloads Mediafire content using the provided URL.
+ *     tags:
+ *       - downloader
+ *     parameters:
+ *       - in: query
+ *         name: url
+ *         required: true
+ *         description: The URL of the Mediafire content to download.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response with downloaded TikTok content.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                 code:
+ *                   type: integer
+ *                 author:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *               example:
+ *                 status: Success
+ *                 code: 200
+ *                 author: xyla
+ *                 data:
+ *                   
+ */
+apiR.get( '/mediafire', async ( req, res, next ) => {
+  let url = req.query.url
+  if ( !url ) return res.json( msg.paramurl )
+  scrape.downloader.mediafire( url )
+    .then( data => {
+      let result = data;
+      if ( !result ) res.json( msg.nodata )
+      res.json( {
+        status: "Success",
+        code: 200,
+        author: author,
+        data: result
+      } )
+    } )
+} )
+
+
+/**
+ * @swagger
+ * /api/downloader/sfilemobi:
+ *   get:
+ *     summary: Download sfilemobi content
+ *     description: Downloads sfilemobi content using the provided URL.
+ *     tags:
+ *       - downloader
+ *     parameters:
+ *       - in: query
+ *         name: url
+ *         required: true
+ *         description: The URL of the sfilemobi content to download.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response with downloaded sfilemobi content.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                 code:
+ *                   type: integer
+ *                 author:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *               example:
+ *                 status: Success
+ *                 code: 200
+ *                 author: xyla
+ *                 data:
+ *                   
+ */
+apiR.get('/sfilemobi', async (req, res, next) => {
+  let url = req.query.url
+  if (!url) return res.json(msg.paramurl)
+    scrape.downloader.sfilemobi(url)
+  .then(data => {
+    let result = data;
+    if (!result) res.json(msg.nodata)
+    res.json({
+      status: "Success",
+      code: 200,
+      author: author,
+      data: result
+    })
+  })
+})
+
+
+
+
+
+
+
 module.exports = apiR
