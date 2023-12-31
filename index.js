@@ -11,6 +11,7 @@ const path = require('path');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 secure = require('ssl-express-www');
+const helloRouter = require('./src/hallo.js')
 // Import the router from the hello.js file
 const apiR = require('./src/api/api-docs.js');
 
@@ -65,11 +66,12 @@ const specs = swaggerJsDoc(options);
 // Swagger UI endpoint
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs, { customCssUrl: CSS_URL }));
 
-// Your existing route setup
+/*// Your existing route setup
 app.get( '/', ( req, res ) => {
   const htmlContent = fs.readFileSync( 'index.html', 'utf8' );
   res.send( htmlContent );
-} );
+} );*/
+app.use('/', helloRouter)
 app.use('/api', apiR);
 
 // Start the server
