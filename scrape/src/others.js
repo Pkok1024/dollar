@@ -4,3 +4,4 @@ exports.xyro = require('./others/xyro');
 exports.diffusion = require('./others/diffusion');
 exports.deepenglish = require('./others/deepenglish');
 exports.azure = require('./others/azure');
+exports.gptonline = require('./others/gptonline');

@@ -11,20 +11,20 @@ router.use(bodyParser.json()); // to use body object in requests
 router.use(morgan("dev"));
 router.use(cors());
 
+// Set view engine and views directory
 router.set("view engine", "ejs");
-
-// This was we can keep everything inside our src folder!!
-
-//const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
 router.set("views", path.join(__dirname, "views"));
-router.set("view engine", "ejs");
 
-// This is to read csss
-router.use(express.static(path.join(__dirname, "views/pages")));
+// Serve static files (CSS)
+router.use(express.static(path.join(__dirname, "views", "pages")));
+router.use("/login", express.static(path.join(__dirname, "views", "login"))); 
 
 router.get("/", (req, res) => {
-  res.render(path.join(__dirname, "views", "pages", "index"));
+  res.render("pages/index");
+});
+
+router.get("/login", (req, res) => {
+  res.render("login/index");
 });
 
 module.exports = router;

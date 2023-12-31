@@ -231,10 +231,10 @@ apiR.get('/azure', async (req, res, next) => {
 })
 /**
  * @swagger
- * /api/ai/txt2img:
+ * /api/ai/gptonline:
  *   get:
- *     summary: txt2img ai api
- *     description: communication with ai
+ *     summary: gpt api
+ *     description: communication with gpt
  *     tags:
  *       - ai
  *     parameters:
@@ -266,20 +266,21 @@ apiR.get('/azure', async (req, res, next) => {
  *                 author: iky
  *                 data:
  */
-apiR.get('/txt2img', async (req, res, next) => {
-  const query = req.query.q;
-  if (!query) return res.json(msg.paramquery);
+apiR.get('/gptonline', async (req, res, next) => {
+  const query = req.query.q
+  if (!query) return res.json(msg.paramquery)
 
-  xorizn = await fetchJson(`https://aemt.me/ai/text2img?text=${query}`).then(data => {
-    let aneh = data.result;
-    if (!aneh) return res.json(msg.nodata);
+    scrape.others.gptonline(query)
+  .then(data => {
+    let anu = data
+    if (!anu) res.json(msg.nodata)
     res.json({
       status: "Success",
       code: 200,
       author: "iky",
-      data: aneh
-    });
-  });
-});
+      data: anu
+    })
+  })
+})
 
 module.exports = apiR
