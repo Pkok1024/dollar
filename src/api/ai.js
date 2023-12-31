@@ -56,7 +56,7 @@ const {
  *                 author: xyla
  *                 data:
  */
-apiR.get('/a/bard', async (req, res, next) => {
+apiR.get('/bard', async (req, res, next) => {
   const query = req.query.q;
   if (!query) return res.json(msg.paramquery);
 
