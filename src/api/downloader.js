@@ -11,51 +11,6 @@ const {
     getBuffer
 } = require('../../lib/function');
 const scrape = require('../../scrape/index');
-/**
- * @swagger
- * tags:
- *   - name: Downloader
- *     description: Endpoints for downloading content
- */
-
-/**
- * @swagger
- * /api/downloader/tiktok:
- *   get:
- *     summary: Download TikTok content
- *     description: Downloads TikTok content using the provided URL.
- *     tags:
- *       - Downloader
- *     parameters:
- *       - in: query
- *         name: url
- *         required: true
- *         description: The URL of the TikTok content to download.
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Successful response with downloaded TikTok content.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                 code:
- *                   type: integer
- *                 author:
- *                   type: string
- *                 data:
- *                   type: object
- *               example:
- *                 status: Success
- *                 code: 200
- *                 author: xyla
- *                 data:
- *                   
- */
 apiR.get('/tiktok', async (req, res, next) => {
   const url = req.query.url;
   if (!url) return res.json(msg.paramurl);
@@ -71,46 +26,6 @@ apiR.get('/tiktok', async (req, res, next) => {
       });
     });
 });
-
-
-/**
- * @swagger
- * /api/downloader/mediafire:
- *   get:
- *     summary: Download Mediafire content
- *     description: Downloads Mediafire content using the provided URL.
- *     tags:
- *       - Downloader
- *     parameters:
- *       - in: query
- *         name: url
- *         required: true
- *         description: The URL of the Mediafire content to download.
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Successful response with downloaded TikTok content.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                 code:
- *                   type: integer
- *                 author:
- *                   type: string
- *                 data:
- *                   type: object
- *               example:
- *                 status: Success
- *                 code: 200
- *                 author: xyla
- *                 data:
- *                   
- */
 apiR.get( '/mediafire', async ( req, res, next ) => {
   let url = req.query.url
   if ( !url ) return res.json( msg.paramurl )
@@ -126,46 +41,6 @@ apiR.get( '/mediafire', async ( req, res, next ) => {
       } )
     } )
 } )
-
-
-/**
- * @swagger
- * /api/downloader/sfilemobi:
- *   get:
- *     summary: Download sfilemobi content
- *     description: Downloads sfilemobi content using the provided URL.
- *     tags:
- *       - Downloader
- *     parameters:
- *       - in: query
- *         name: url
- *         required: true
- *         description: The URL of the sfilemobi content to download.
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Successful response with downloaded sfilemobi content.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                 code:
- *                   type: integer
- *                 author:
- *                   type: string
- *                 data:
- *                   type: object
- *               example:
- *                 status: Success
- *                 code: 200
- *                 author: xyla
- *                 data:
- *                   
- */
 apiR.get('/sfilemobi', async (req, res, next) => {
   let url = req.query.url
   if (!url) return res.json(msg.paramurl)
