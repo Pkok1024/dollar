@@ -13,7 +13,7 @@ const {
 /**
  * @swagger
  * tags:
- *   - name: random
+ *   - name: Random
  *     description: Endpoints for random content
  */
 
@@ -23,7 +23,7 @@ const {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -50,7 +50,7 @@ apiR.get( '/random', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -77,7 +77,7 @@ apiR.get( '/potatogodzilla', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -105,7 +105,7 @@ apiR.get( '/china', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -133,7 +133,7 @@ apiR.get( '/indonesia', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -161,7 +161,7 @@ apiR.get( '/japan', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -189,7 +189,7 @@ apiR.get( '/korean', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -217,7 +217,7 @@ apiR.get( '/malaysia', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:
@@ -245,7 +245,7 @@ apiR.get( '/thailand', async ( req, res, next ) => {
  *   get:
  *     summary: Get random image and video
  *     description: Random image api
- *     tags: [random]
+ *     tags: [Random]
  *     produces:
  *       - image/png
  *     responses:

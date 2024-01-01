@@ -14,7 +14,7 @@ const scrape = require('../../scrape/index');
 /**
  * @swagger
  * tags:
- *   - name: downloader
+ *   - name: Downloader
  *     description: Endpoints for downloading content
  */
 
@@ -25,7 +25,7 @@ const scrape = require('../../scrape/index');
  *     summary: Download TikTok content
  *     description: Downloads TikTok content using the provided URL.
  *     tags:
- *       - downloader
+ *       - Downloader
  *     parameters:
  *       - in: query
  *         name: url
@@ -80,7 +80,7 @@ apiR.get('/tiktok', async (req, res, next) => {
  *     summary: Download Mediafire content
  *     description: Downloads Mediafire content using the provided URL.
  *     tags:
- *       - downloader
+ *       - Downloader
  *     parameters:
  *       - in: query
  *         name: url
@@ -135,7 +135,7 @@ apiR.get( '/mediafire', async ( req, res, next ) => {
  *     summary: Download sfilemobi content
  *     description: Downloads sfilemobi content using the provided URL.
  *     tags:
- *       - downloader
+ *       - Downloader
  *     parameters:
  *       - in: query
  *         name: url

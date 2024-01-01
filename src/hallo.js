@@ -17,14 +17,8 @@ router.set("views", path.join(__dirname, "views"));
 
 // Serve static files (CSS)
 router.use(express.static(path.join(__dirname, "views", "pages")));
-router.use("/login", express.static(path.join(__dirname, "views", "login"))); 
-
 router.get("/", (req, res) => {
   res.render("pages/index");
-});
-
-router.get("/login", (req, res) => {
-  res.render("login/index");
 });
 
 module.exports = router;

@@ -15,7 +15,7 @@ const {
 /**
  * @swagger
  * tags:
- *   - name: ai
+ *   - name: Ai
  *     description: Endpoints for searching content
  */
 
@@ -26,7 +26,7 @@ const {
  *     summary: bard ai api
  *     description: communication with bard ai
  *     tags:
- *       - ai
+ *       - Ai
  *     parameters:
  *       - in: query
  *         name: q
@@ -78,7 +78,7 @@ apiR.get('/bard', async (req, res, next) => {
  *     summary: bing creator api
  *     description: communication with bing
  *     tags:
- *       - ai
+ *       - Ai
  *     parameters:
  *       - in: query
  *         name: q
@@ -130,7 +130,7 @@ apiR.get('/bingimage', async (req, res, next) => {
  *     summary: deepenglish ai api
  *     description: communication with ai
  *     tags:
- *       - ai
+ *       - Ai
  *     parameters:
  *       - in: query
  *         name: q
@@ -183,7 +183,7 @@ apiR.get('/deepenglish', async (req, res, next) => {
  *     summary: azure ai api
  *     description: communication with bard ai
  *     tags:
- *       - ai
+ *       - Ai
  *     parameters:
  *       - in: query
  *         name: q
@@ -236,7 +236,7 @@ apiR.get('/azure', async (req, res, next) => {
  *     summary: gpt api
  *     description: communication with gpt
  *     tags:
- *       - ai
+ *       - Ai
  *     parameters:
  *       - in: query
  *         name: q
