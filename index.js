@@ -10,10 +10,9 @@ const favicon = require( 'serve-favicon' );
 const path = require( 'path' );
 const compression = require( 'compression' );
 const cookieParser = require( 'cookie-parser' );
-const {
-  SwaggerTheme
-} = require( 'swagger-themes' );
+const swaggerJSDoc = require( 'swagger-jsdoc' );
 const helloRouter = require( './src/hallo' )
+
 // Import the router from the hello.js file
 const apiR = require( './src/api/router' );
 dotenv.config( );
@@ -35,6 +34,10 @@ app.use( express.json( ) );
 app.use( cookieParser( ) );
 // Swagger setup
 const options = {
+    url: "./swagger.json",
+  docExpansion: "full",
+  displayRequestDuration: true,
+customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
   definition: {
     info: {
       title: '.M.U.F.A.R.',
@@ -47,32 +50,23 @@ const options = {
 };
 
 
-// Menggunakan Swagger UI untuk menampilkan dokumentasi OpenAPI
-app.use( '/docsc', swaggerUI.serve, swaggerUI.setup( options ) );
-
-
-//app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs,options2 ));
 const specs = swaggerJsDoc( options );
+
+const options2 = require('./config.js')
 
 
 // Swagger UI endpoint
-const theme = new SwaggerTheme( 'v3' );
-const options2 = {
-  explorer: true,
-  customCss: `
-    ${theme.getBuffer('monokai')}
-    .swagger-ui {
-      background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://telegra.ph/file/91fb54d65a22f5b406da8.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-  `,
-  customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg'
-};
 app.use( '/docs', swaggerUI.serve, swaggerUI.setup( specs, options2 ) );
 app.use( '/', helloRouter )
 app.use( '/api', apiR );
 
 
+app.get('/ip', (request, res) => {
+ const ip = request.headers['cf-connecting-ip'] || request.headers['x-real-ip'] ||
+  request.headers['x-forwarded-for'] || request.socket.remoteAddress || '';
+  console.log (ip)
+  return res.send({ip})
+});
 // Start the server
 const port = process.env.PORT || 3002;
 app.listen( port, ( ) => {
