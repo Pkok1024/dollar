@@ -1,6 +1,5 @@
 const path = require( 'path' );
 
-
  const options = {
     url: "./swagger.json",
   docExpansion: "full",
@@ -12,7 +11,7 @@ customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
     info: {
       title: '.M.U.F.A.R.',
       version: '1.0.0',
-      description: 'The WhatsApp Bot REST API empowers developers to seamlessly integrate intelligent and dynamic chatbot capabilities into their WhatsApp applications. With a diverse range of endpoints, this API facilitates communication with the WhatsApp platform, allowing for the creation of interactive and responsive chat experiences.',
+      description: 'Deskripsi API Anda',
     },
     basePath: '/',
   },
@@ -22,17 +21,18 @@ customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
 .swagger-ui html {
   box-sizing: border-box
 }
-
 .swagger-ui *, .swagger-ui :after, .swagger-ui :before {
   box-sizing: inherit
 }
 .swagger-ui {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0, 0.7)), url('https://telegra.ph/file/ae39a8d201397203bc401.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: transparent;
     }
+body {
+background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0, 0.7)), url('https://telegra.ph/file/ae39a8d201397203bc401.jpg') no-repeat center center fixed;
+      background-size: cover;
+}
 .swagger-ui body {
-  margin: 0;
-  background: transparent;
+  background: #000;
 }
 
 .swagger-ui .wrapper {

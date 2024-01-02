@@ -33,30 +33,33 @@ app.use( express.urlencoded( {
 app.use( express.json( ) );
 app.use( cookieParser( ) );
 // Swagger setup
-const options = {
-    url: "./swagger.json",
-  docExpansion: "full",
-  displayRequestDuration: true,
-customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
-  definition: {
-    info: {
-      title: '.M.U.F.A.R.',
-      version: '0.6.9',
-      description: 'Deskripsi API Anda',
-    },
-    basePath: '/',
-  },
-  apis: [ path.resolve( __dirname, './swagger.yaml' ) ],
-};
-
-
-const specs = swaggerJsDoc( options );
-
+// const options = {
+//     url: "./swagger.json",
+//   docExpansion: "full",
+//   displayRequestDuration: true,
+// customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
+//   definition: {
+//     info: {
+//       title: '.M.U.F.A.R.',
+//       version: '0.6.9',
+//       description: 'Deskripsi API Anda',
+//     },
+//     basePath: '/',
+//   },
+//   apis: [ path.resolve( __dirname, './swagger.yaml' ) ],
+// };
 const options2 = require('./config.js')
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDoc = require('./options.js');
+// const specs = swaggerJsDoc( options );
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(require('./swagger.json'),
+options2));
+swaggerDoc(app);
 
 // Swagger UI endpoint
-app.use( '/docs', swaggerUI.serve, swaggerUI.setup( specs, options2 ) );
+// app.use( '/docs', swaggerUI.serve, swaggerUI.setup( specs, options2 ) );
 app.use( '/', helloRouter )
 app.use( '/api', apiR );
 

@@ -4,6 +4,7 @@ const fs = require( 'fs' );
 const request = require( 'request' )
 const apiR = express( );
 let currentIndex = 0;
+
 __path = process.cwd( );
 const author = 'xyla'
 const scrape = require('../../scrape/index');
