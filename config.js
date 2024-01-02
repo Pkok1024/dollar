@@ -12,7 +12,7 @@ customFavicon: 'https://telegra.ph/file/5d77cbecfa85661dfd9c7.jpg',
     info: {
       title: '.M.U.F.A.R.',
       version: '1.0.0',
-      description: 'Deskripsi API Anda',
+      description: 'The WhatsApp Bot REST API empowers developers to seamlessly integrate intelligent and dynamic chatbot capabilities into their WhatsApp applications. With a diverse range of endpoints, this API facilitates communication with the WhatsApp platform, allowing for the creation of interactive and responsive chat experiences.',
     },
     basePath: '/',
   },
